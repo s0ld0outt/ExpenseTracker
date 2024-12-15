@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox
+        alignment="CENTER"
+        spacing="15.0"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.example.expensetracker.ExpenseTrackerController">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <!-- Блок добавления расхода -->
+    <Label text="Добавить расход" style="-fx-font-weight: bold;"/>
+
+    <HBox spacing="10.0">
+        <TextField
+                fx:id="amountField"
+                promptText="Сумма"
+                HBox.hgrow="ALWAYS"/>
+
+        <ComboBox
+                fx:id="categoryComboBox"
+                promptText="Категория"
+                HBox.hgrow="ALWAYS"/>
+
+        <DatePicker
+                fx:id="datePicker"
+                promptText="Дата"
+                HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <Button
+            text="Добавить расход"
+            onAction="#addExpense"
+            maxWidth="Infinity"/>
+
+    <Separator />
+
+    <!-- Блок статистики -->
+    <Label text="Статистика расходов" style="-fx-font-weight: bold;"/>
+
+    <HBox spacing="10.0">
+        <ComboBox
+                fx:id="statisticsCategoryComboBox"
+                promptText="Выберите категорию"
+                HBox.hgrow="ALWAYS"/>
+
+        <Button
+                text="Показать статистику"
+                onAction="#showStatistics"
+                HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <TextArea
+            fx:id="statisticsArea"
+            editable="false"
+            wrapText="true"
+            prefHeight="200.0"/>
+
+    <Separator />
+
+    <!-- Блок экспорта -->
+    <Button
+            text="Экспортировать в Excel"
+            onAction="#exportToExcel"
+            maxWidth="Infinity"/>
+</VBox>
